@@ -5,7 +5,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -86,8 +85,4 @@ public class PhotoQuiz {
 		JLabel imageLabel = new JLabel(icon);
 		return imageLabel;
 	}
-
-	/* OPTIONAL */
-	// *14. add scoring to your quiz
-	// *15. make something happen when mouse enters image (imageComponent.addMouseMotionListener()) 
 }
