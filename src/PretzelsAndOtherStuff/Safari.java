@@ -1,0 +1,1 @@
+package PretzelsAndOtherStuff; import javax.swing.JOptionPane; public class Safari {public static void main(String[] args){for(;true;){JOptionPane.showMessageDialog(null, "Do not press OK.");}}}
