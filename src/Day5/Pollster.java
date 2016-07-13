@@ -15,11 +15,11 @@ public void start(){
 	JButton Op1 = new JButton();
 	JButton Op2 = new JButton();
 	Dimension VOTE = new Dimension(250, 100);
-	boolean brexit;
+	/*boolean brexit;
 	boolean trump;
 	boolean guncontrol;
 	boolean abortion;
-	boolean taxes;
+	boolean taxes;*/
 	//Start off by setting up the size of the buttons
 	Op1.setPreferredSize(VOTE);
 	Op2.setPreferredSize(VOTE);
