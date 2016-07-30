@@ -33,7 +33,7 @@ import java.util.Random;
 public class Jeoprady implements ActionListener {
 	private JButton firstButton;
 	private JButton secondButton;
-	private JButton thirdButton, fourthButton;
+	private JButton thirdButton;
 
 	private JPanel quizPanel;
 	int score = 0;
@@ -205,10 +205,6 @@ public class Jeoprady implements ActionListener {
 		}
 	}
 
-	private void playSound(String fileName) {
-		AudioClip scream = JApplet.newAudioClip(getClass().getResource(fileName));
-		scream.play();
-	}
 
 	private Component makeScorePanel() {
 		JPanel panel = new JPanel();
