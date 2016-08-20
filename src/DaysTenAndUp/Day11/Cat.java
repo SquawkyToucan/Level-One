@@ -1,4 +1,4 @@
-package DaysTenAndUp.Day10;
+package DaysTenAndUp.Day11;
 
 public class Cat {
 
