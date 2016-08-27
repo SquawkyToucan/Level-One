@@ -1,11 +1,18 @@
 package Day9;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import java.util.Random;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class FortuneCookie {
+public class FortuneCookie implements ActionListener {
 	public static void main(String[] args) {
+		new FortuneCookie().showButton();
+	}
+	public void getFortune() {
 		int random = new Random().nextInt(10);
 		if(random == 0) {
 			JOptionPane.showMessageDialog(null, "A person near you will soon become a cheater. *cough* Dalia");
@@ -26,16 +33,30 @@ public class FortuneCookie {
 			JOptionPane.showMessageDialog(null, "FreeRice.com will reward you for having an arsenal of knowledge.");
 		}
 		if(random == 6) {
-			JOptionPane.showMessageDialog(null, "Don't listen to your mother and father - follow your own path.");
+			JOptionPane.showMessageDialog(null, "Don't listen to urmom and urdad - follow your own path.");
 		}
 		if(random == 7) {
 			JOptionPane.showMessageDialog(null, "Do things now, be punished later.");
 		}
 		if(random == 8) {
-			JOptionPane.showMessageDialog(null, "Be honest and pay those whom you owe - It is the right thing to do.");
+			JOptionPane.showMessageDialog(null, "Be honest.");
 		}
 		if(random == 9) {
 			JOptionPane.showMessageDialog(null, "Once you go Mac, you can't go back!");
 		}
+	}
+	public void showButton() {
+		JFrame frame = new JFrame();
+		JButton butt = new JButton();
+		frame.setVisible(true);
+		frame.add(butt);
+		frame.setSize(300, 300);
+		butt.addActionListener(this);
+		butt.setText("Get a Fortune!");
+		frame.setTitle("Your Fate...");
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		getFortune();
 	}
 }
