@@ -52,7 +52,7 @@ public class Jeoprady implements ActionListener {
 		// 2. Give your frame a title
 		frame.setTitle("Jeoprady");
 		// 3. Create a JPanel variable to hold the header using the createHeader method
-		JPanel header = createHeader(null);
+		JPanel header = createHeader("Politics, States, and Countries of the World");
 		// 4. Add the header component to the quizPanel
 		quizPanel.add(header);
 		// 5. Add the quizPanel to the frame
@@ -89,7 +89,6 @@ public class Jeoprady implements ActionListener {
 	 *
 	 * [optional] Use the showImage or playSound methods when the user answers a question
 	 */
-	playJeopradyTheme();
 	}
 	private JButton createButton(String dollarAmount) {
 		// Create a new JButton
@@ -103,55 +102,98 @@ public class Jeoprady implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
-		// Remove this temporary message:
-		JOptionPane.showMessageDialog(null, "pressed " + ((JButton) arg0.getSource()).getText() + " button");
-
 		// Use the method that plays the Jeoprady theme music.
 		playJeopradyTheme();
 		JButton buttonPressed = (JButton) arg0.getSource();
 		// If the buttonPressed was the firstButton
-		int chooser = new Random().nextInt(3);
+		int chooser250 = 0;
+		boolean twohundredfifty = true;
+		boolean fivehundred = true;
+		boolean onethousand = true;
 		if(buttonPressed == firstButton) {
-			if(chooser == 0) {
+			if(chooser250 == 0) {
 				askQuestion("This state revolted from Mexico in 1846 during the month of June. What is...?", "California", 250);
+				chooser250++;
 			}
-			if(chooser == 1) {
+			if(chooser250 == 1) {
 				askQuestion("This state was once a country and was known for the \"Green Mountain Boys.\" What is...?", "Vermont", 250);
+				chooser250++;
 			}
-			if(chooser == 2) {
+			if(chooser250 == 2) {
 				askQuestion("The Original London Bridge was rebuilt in Lake Havasu City, in this State. What is...?", "Arizona", 250);
+				chooser250++;
 			}
-			if(chooser == 3) {
+			if(chooser250 == 3) {
 				askQuestion("Cheeseburgers were invented in this state. What is...?", "Kentucky", 250);
+				chooser250++;
+			}
+			if(chooser250 == 4) {
+				JOptionPane.showMessageDialog(null, "No more questions in the 250 category!");
+				twohundredfifty = false;
 			}
 		}
+		int chooser500 = 0;
 		if(buttonPressed == secondButton) {
-			if(chooser == 0) {
-				askQuestion("This was the last state to join the Confederacy. What is...?", "Tennessee", 500);
+			if(chooser500 == 0) {
+				JOptionPane.showMessageDialog(null, "Daily Double!");
+				String dd = JOptionPane.showInputDialog(null, "How much do you want to wager?");
+				int dailydouble = Integer.parseInt(dd);
+				if(dailydouble > score) {
+					JOptionPane.showMessageDialog(null, "Too much! You wagered max.");
+					dailydouble = score;
+				}
+				askQuestion("This was the last state to join the Confederacy. What is...?", "Tennessee", dailydouble);
+				chooser500++;
 			}
-			if(chooser == 1) {
+			if(chooser500 == 1) {
 				askQuestion("This country has the world's longest coastline.", "Canada", 500);
+				chooser500++;
 			}
-			if(chooser == 2) {
+			if(chooser500 == 2) {
 				askQuestion("Rio de Jainero hosts this bay, a natural harbor. Where is...?", "Guanabara Harbor", 500);
+				chooser500++;
 			}
-			if(chooser == 3) {
+			if(chooser500 == 3) {
 				askQuestion("The main colors in the Peruvian flag are white and this color. What is...?", "Red", 500);
+				chooser500++;
+			}
+			if(chooser500 == 4) {
+				JOptionPane.showMessageDialog(null, "No more questions in the 500 category!");
+				fivehundred = false;
 			}
 		}
+		int chooser = 0;
 		if(buttonPressed == thirdButton) {
 			if(chooser == 0) {
 				askQuestion("The most corrupt country in the world, according to Forbes. What is...?", "Somalia", 1000);
+				chooser++;
 			}
 			if(chooser == 1) {
 				askQuestion("This right wing party in Europe, called Alternative für Deutschland, is translated to this. What is ...?", "Alternative for Germany", 1000);
+				chooser++;
 			}
 			if(chooser == 2) {
-				askQuestion("Jo Cox, a British MP who was killed by an anti-Euro radical, was a member of this political party. What is the...?", "Labour Party", 1000);
+				JOptionPane.showMessageDialog(null, "Daily Double!");
+				String dd = JOptionPane.showInputDialog(null, "How much do you want to wager?");
+				int dailydouble = Integer.parseInt(dd);
+				if(dailydouble > score) {
+					JOptionPane.showMessageDialog(null, "Too much! You wagered max.");
+					dailydouble = score;
+				}
+				askQuestion("Jo Cox, a British MP who was killed by an anti-Euro radical, was a member of this political party. What is the...?", "Labour Party", dailydouble);
+				chooser++;
 			}
 			if(chooser == 3) {
-				askQuestion("This person cheats in walking at the League. Who is...?", "Dalia", 1000);
+				askQuestion("This person cheats in walking all the time. Who is...?", "Dalia", 1000);
+				chooser++;
 			}
+			if(chooser == 4) {
+				JOptionPane.showMessageDialog(null, "No more questions in the 1000 category!");
+				onethousand = false;
+			}
+		}
+		if(twohundredfifty&&fivehundred&&onethousand == false) {
+			JOptionPane.showMessageDialog(null, "No more questions! You earned $" + score + "!");
 		}
 		
 		// Call the askQuestion() method
@@ -183,7 +225,7 @@ public class Jeoprady implements ActionListener {
 		// Otherwise
 		if(!ask.contains(correctAnswer)) {
 			score = score - prizeMoney;
-			JOptionPane.showMessageDialog(null, "Sorry, the correct answer was " + correctAnswer + ". You lost " + prizeMoney + "points.");
+			JOptionPane.showMessageDialog(null, "Sorry, the correct answer was " + correctAnswer + ". You lost " + prizeMoney + " points.");
 		}
 		// Decrement the score by the prizeMoney
 		// Pop up a message to tell the user the correct answer
@@ -192,7 +234,7 @@ public class Jeoprady implements ActionListener {
 		updateScore();
 	}
 
-	public void playJeopradyTheme() {
+	public static void playJeopradyTheme() {
 		try {
 			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/Users/League/Google Drive/league-sounds/Jeopardy.wav"));
 			Clip clip = AudioSystem.getClip();
