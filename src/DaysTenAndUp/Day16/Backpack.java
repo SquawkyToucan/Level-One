@@ -20,13 +20,13 @@ public class Backpack {
 
 	public void putInBackpack(Supply supply) {
 		if (supply instanceof Pencil) {
-			this.pencil = (Pencil) supply;
+			Backpack.pencil = (Pencil) supply;
 			System.out.println("You put your pencil in your Backpack");
 		} else if (supply instanceof Ruler) {
-			this.ruler = (Ruler) supply;
+			Backpack.ruler = (Ruler) supply;
 			System.out.println("You put your ruler in your Backpack");
 		} else if (supply instanceof Textbook) {
-			this.textbook = (Textbook) supply;
+			Backpack.textbook = (Textbook) supply;
 			System.out.println("You put your textbook in your Backpack");
 		} else {
 			System.out.println("That isn't a valid school supply");

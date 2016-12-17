@@ -70,6 +70,7 @@ public class SimplePainter extends JPanel implements MouseMotionListener, MouseL
 	}
 
 
+	@SuppressWarnings("unused")
 	private void changeDotColor(Color c){
 		color = c;
 	}
@@ -99,6 +100,7 @@ public class SimplePainter extends JPanel implements MouseMotionListener, MouseL
 		}
 
 
+		@SuppressWarnings("unused")
 		public void setColor(Color c) {
 			this.c = c;
 		}

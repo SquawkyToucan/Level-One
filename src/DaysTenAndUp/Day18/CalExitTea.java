@@ -1,7 +1,5 @@
 package DaysTenAndUp.Day18;
 
-import DaysTenAndUp.Day18.Kettle.Water;
-
 //Copyright Wintriss Technical Schools 2013
 public class CalExitTea {
 
@@ -60,10 +58,7 @@ class Kettle {
 
 class Cup {
 
-	private TeaBag teabag;
-
 	void makeTea(TeaBag teabag, Kettle.Water hotWater) {
-		this.teabag = teabag;
 		if (hotWater.isHot())
 			System.out.println("Making hot " + teabag.getFlavor() + " tea.");
 		else
