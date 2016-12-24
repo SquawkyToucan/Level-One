@@ -42,7 +42,7 @@ public class Houses {
 			tortoise.turn(90);
 			tortoise.move(30);
 			tortoise.turn(90);
-		}
+		} 
 		tortoise.move(height);
 		tortoise.turn(-90);
 		//Grass
