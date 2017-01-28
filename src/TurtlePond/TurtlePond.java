@@ -117,10 +117,6 @@ public class TurtlePond implements KeyEventDispatcher {
 			return false;
 	}
 
-	private Point getFirstLocation() {
-		return previousLocations.get(0);
-	}
-
 	/***********************
 	 * don't worry about the stuff under here
 	 ******************/
