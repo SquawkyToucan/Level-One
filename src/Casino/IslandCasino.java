@@ -22,5 +22,6 @@ public class IslandCasino {
 		panel.add(wasteMoney);
 		frame.setVisible(true);
 		frame.pack();
+		//Programming
 	}
 }
